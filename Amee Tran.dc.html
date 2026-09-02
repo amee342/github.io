@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/modernist-65bff5bb-0dfa-4885-9486-c66ad57aed4f/styles.css">
+<script src="_ds/modernist-65bff5bb-0dfa-4885-9486-c66ad57aed4f/_ds_bundle.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;800;900&amp;display=swap">
+<style>
+  /* accent — deep rose-red */
+  :root {
+    --color-accent: #c93851;
+    --color-accent-100: #fbf0f2;
+    --color-accent-200: #f4dade;
+    --color-accent-300: #eabcc3;
+    --color-accent-400: #da8593;
+    --color-accent-500: #d05266;
+    --color-accent-600: #b02a41;
+    --color-accent-700: #8b1d30;
+    --color-accent-800: #6a1725;
+    --color-accent-900: #48141d;
+  }
+  body { margin: 0; background: var(--color-bg); color: var(--color-text); font-family: "Archivo", system-ui, sans-serif; }
+  a { color: var(--color-accent); }
+  a:hover { color: var(--color-accent-700); }
+</style>
+<template id="__bundler_thumbnail"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><rect width="120" height="120" fill="#f3f2f2"/><rect x="24" y="52" width="72" height="4" fill="#c93851"/><text x="24" y="46" font-family="Archivo, sans-serif" font-size="30" font-weight="800" fill="#201e1d">AT</text><text x="24" y="76" font-family="Archivo, sans-serif" font-size="9" letter-spacing="1.6" fill="#201e1d">AI ENGINEER</text></svg></template>
+</helmet>
+
+<div style="min-height: 100vh; background: var(--color-bg)">
+
+  <header style="position: sticky; top: 0; z-index: 20; display: flex; align-items: baseline; justify-content: space-between; gap: 24px; padding: 18px 48px; background: var(--color-bg); border-bottom: 2px solid var(--color-divider)">
+    <div onClick="{{ goHome }}" style="cursor: pointer; font-weight: 900; font-size: 17px; letter-spacing: -0.02em; text-transform: uppercase">Amee Tran<span style="color: var(--color-accent)">.</span></div>
+    <nav style="display: flex; align-items: baseline; gap: 28px; font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap">
+      <div onClick="{{ goWork }}" style="cursor: pointer" style-hover="color: var(--color-accent)">Work</div>
+      <div onClick="{{ goAbout }}" style="cursor: pointer" style-hover="color: var(--color-accent)">About</div>
+      <div onClick="{{ goStack }}" style="cursor: pointer" style-hover="color: var(--color-accent)">Stack</div>
+      <a href="{{ githubHref }}" target="_blank" style="text-decoration: none; color: inherit" style-hover="color: var(--color-accent)">GitHub</a>
+      <a href="{{ mailHref }}" class="btn btn-primary" style="letter-spacing: 0.06em; white-space: nowrap; flex: 0 0 auto">Email me</a>
+    </nav>
+  </header>
+
+  <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+  <div>
+    <section id="hero" style="padding: 96px 48px 56px; border-bottom: 2px solid var(--color-divider)">
+      <div style="max-width: 1240px; display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 64px; align-items: end">
+        <div>
+          <div style="font-size: 12px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 24px">AI Engineer — Utrecht, NL</div>
+          <h1 style="font-size: clamp(52px, 8vw, 104px); line-height: 0.94; letter-spacing: -0.035em; margin: 0 0 28px; text-transform: uppercase">I build language<br>models that do<br>actual work<span style="color: var(--color-accent)">.</span></h1>
+          <p style="font-size: 21px; line-height: 1.45; max-width: 640px; margin: 0; text-wrap: pretty">MSc Artificial Intelligence at Vrije Universiteit Amsterdam. I take LLMs out of the demo stage — local inference, structured extraction, graceful fallbacks, and evaluation harnesses that say how well it actually works.</p>
+        </div>
+        <div style="display: grid; gap: 0; border-top: 2px solid var(--color-divider)">
+          <div style="display: flex; justify-content: space-between; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--color-divider); font-size: 13px">
+            <span style="letter-spacing: 0.08em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 55%, transparent)">Now</span>
+            <span style="font-weight: 600; text-align: right">MSc AI, Deepening AI track</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--color-divider); font-size: 13px">
+            <span style="letter-spacing: 0.08em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 55%, transparent)">Before</span>
+            <span style="font-weight: 600; text-align: right">Data Science Intern, 2Contact</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--color-divider); font-size: 13px">
+            <span style="letter-spacing: 0.08em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 55%, transparent)">Based in</span>
+            <span style="font-weight: 600; text-align: right">Amsterdam, Netherlands</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <sc-if value="{{ openToWork }}" hint-placeholder-val="{{ true }}">
+    <div style="display: flex; align-items: center; gap: 20px; padding: 14px 48px; background: var(--color-accent); color: var(--color-bg); border-bottom: 2px solid var(--color-divider)">
+      <span style="font-size: 13px; font-weight: 900; letter-spacing: 0.14em; text-transform: uppercase">Open to AI / ML engineering roles &amp; internships — 2026</span>
+      <a href="{{ mailHref }}" style="font-size: 13px; font-weight: 600; color: var(--color-bg); text-decoration: underline; text-underline-offset: 3px">Get in touch</a>
+    </div>
+    </sc-if>
+
+    <section id="work" style="padding: 72px 48px 0; border-bottom: 2px solid var(--color-divider)">
+      <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 24px; margin-bottom: 40px">
+        <h2 style="font-size: 13px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; margin: 0">Selected work</h2>
+        <span style="font-size: 13px; color: color-mix(in srgb, var(--color-text) 55%, transparent)">Three projects · 2024—2026</span>
+      </div>
+
+      <div onClick="{{ goNail }}" style="display: grid; grid-template-columns: 88px minmax(0, 1fr) 300px; gap: 40px; padding: 36px 0; border-top: 2px solid var(--color-divider); cursor: pointer" style-hover="background: color-mix(in srgb, var(--color-text) 4%, transparent)">
+        <div style="font-size: 13px; font-weight: 800; letter-spacing: 0.1em; color: var(--color-accent)">01</div>
+        <div>
+          <h3 style="font-size: 38px; line-height: 1.05; letter-spacing: -0.025em; margin: 0 0 12px">Nail Salon Booking Assistant</h3>
+          <p style="font-size: 17px; max-width: 620px; margin: 0 0 16px">A local Llama 3.1 model turns messy chat messages into validated bookings — with a rule-based fallback that never leaves a customer without an answer.</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px">
+            <span class="tag tag-outline" style="white-space: nowrap">Local GGUF inference</span>
+            <span class="tag tag-outline" style="white-space: nowrap">Pydantic</span>
+            <span class="tag tag-outline" style="white-space: nowrap">Streamlit</span>
+            <span class="tag tag-outline" style="white-space: nowrap">SQLite</span>
+          </div>
+        </div>
+        <div style="display: grid; gap: 12px; align-content: start">
+          <div style="font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 55%, transparent)">39 evaluated test cases</div>
+          <div style="font-size: 13px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent)">Read case study →</div>
+        </div>
+      </div>
+
+      <div onClick="{{ goCook }}" style="display: grid; grid-template-columns: 88px minmax(0, 1fr) 300px; gap: 40px; padding: 36px 0; border-top: 2px solid var(--color-divider); cursor: pointer" style-hover="background: color-mix(in srgb, var(--color-text) 4%, transparent)">
+        <div style="font-size: 13px; font-weight: 800; letter-spacing: 0.1em; color: var(--color-accent)">02</div>
+        <div>
+          <h3 style="font-size: 38px; line-height: 1.05; letter-spacing: -0.025em; margin: 0 0 12px">Cooking Assistant Agent</h3>
+          <p style="font-size: 17px; max-width: 620px; margin: 0 0 16px">A voice-capable recipe agent where a neural intent layer hands off to Prolog — so ingredient logic is explainable instead of hallucinated.</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px">
+            <span class="tag tag-outline" style="white-space: nowrap">Dialogflow CX</span>
+            <span class="tag tag-outline" style="white-space: nowrap">Prolog</span>
+            <span class="tag tag-outline" style="white-space: nowrap">Speech-to-text</span>
+          </div>
+        </div>
+        <div style="display: grid; gap: 12px; align-content: start">
+          <div style="font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 55%, transparent)">Neuro-symbolic hand-off</div>
+          <div style="font-size: 13px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent)">Read case study →</div>
+        </div>
+      </div>
+
+      <div onClick="{{ goSenti }}" style="display: grid; grid-template-columns: 88px minmax(0, 1fr) 300px; gap: 40px; padding: 36px 0; border-top: 2px solid var(--color-divider); border-bottom: 2px solid var(--color-divider); cursor: pointer" style-hover="background: color-mix(in srgb, var(--color-text) 4%, transparent)">
+        <div style="font-size: 13px; font-weight: 800; letter-spacing: 0.1em; color: var(--color-accent)">03</div>
+        <div>
+          <h3 style="font-size: 38px; line-height: 1.05; letter-spacing: -0.025em; margin: 0 0 12px">Customer Voice Pipeline</h3>
+          <p style="font-size: 17px; max-width: 620px; margin: 0 0 16px">At 2Contact: scraped forum threads, classified satisfaction with OpenAI models, and put the whole ETL on GitHub Actions so the weekly report wrote itself.</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px">
+            <span class="tag tag-outline" style="white-space: nowrap">Python</span>
+            <span class="tag tag-outline" style="white-space: nowrap">OpenAI API</span>
+            <span class="tag tag-outline" style="white-space: nowrap">GitHub Actions</span>
+            <span class="tag tag-outline" style="white-space: nowrap">Dashboarding</span>
+          </div>
+        </div>
+        <div style="display: grid; gap: 12px; align-content: start">
+          <div style="font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 55%, transparent)">Internship · 2Contact, 2024</div>
+          <div style="font-size: 13px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent)">Read case study →</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" style="padding: 72px 48px; border-bottom: 2px solid var(--color-divider)">
+      <div style="display: grid; grid-template-columns: clamp(130px, 16vw, 300px) minmax(0, 1fr); gap: clamp(32px, 4vw, 64px)">
+        <h2 style="font-size: 13px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; margin: 0">About</h2>
+        <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 48px; max-width: 900px">
+          <div>
+            <p style="font-size: 19px; line-height: 1.5; margin: 0 0 16px; text-wrap: pretty">I studied AI at VU Amsterdam because I wanted to understand systems end to end — the model, the data around it, and the person on the other side of the screen.</p>
+            <p style="font-size: 15px; line-height: 1.6; margin: 0; color: color-mix(in srgb, var(--color-text) 75%, transparent)">Two years as a teaching assistant taught me to explain hard things simply, and to notice where people actually get stuck. That shows up in how I build: clear failure modes, honest evaluation, no magic.</p>
+          </div>
+          <div>
+            <p style="font-size: 15px; line-height: 1.6; margin: 0 0 16px; color: color-mix(in srgb, var(--color-text) 75%, transparent)">During my internship at 2Contact I sat between the sales department and the data — turning vague questions into metrics, then into automated pipelines other people could rely on.</p>
+            <p style="font-size: 15px; line-height: 1.6; margin: 0; color: color-mix(in srgb, var(--color-text) 75%, transparent)">Now I'm in the Deepening AI track of my master's, spending most of my time on LLM systems: extraction, agents, retrieval, and how to prove they work.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="stack" style="padding: 72px 48px; border-bottom: 2px solid var(--color-divider)">
+      <div style="display: grid; grid-template-columns: clamp(130px, 16vw, 300px) minmax(0, 1fr); gap: clamp(32px, 4vw, 64px)">
+        <h2 style="font-size: 13px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; margin: 0">Skills &amp; stack</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 0; border-top: 2px solid var(--color-divider); border-left: 2px solid var(--color-divider)">
+          <div style="padding: 24px; border-right: 2px solid var(--color-divider); border-bottom: 2px solid var(--color-divider)">
+            <div style="font-size: 12px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 14px">Languages</div>
+            <div style="font-size: 16px; line-height: 1.9">Python<br>R<br>SQL · SPARQL<br>HTML</div>
+          </div>
+          <div style="padding: 24px; border-right: 2px solid var(--color-divider); border-bottom: 2px solid var(--color-divider)">
+            <div style="font-size: 12px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 14px">Machine learning</div>
+            <div style="font-size: 16px; line-height: 1.9">PyTorch · TensorFlow<br>Large language models<br>Deep learning<br>Knowledge graphs</div>
+          </div>
+          <div style="padding: 24px; border-right: 2px solid var(--color-divider); border-bottom: 2px solid var(--color-divider)">
+            <div style="font-size: 12px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 14px">Data</div>
+            <div style="font-size: 16px; line-height: 1.9">Data wrangling &amp; mining<br>Exploratory analysis<br>Hypothesis testing<br>Dashboarding</div>
+          </div>
+          <div style="padding: 24px; border-right: 2px solid var(--color-divider); border-bottom: 2px solid var(--color-divider)">
+            <div style="font-size: 12px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 14px">Tooling</div>
+            <div style="font-size: 16px; line-height: 1.9">Git · GitHub Actions<br>Docker<br>MLflow · Airflow<br>Flask · Streamlit · Postman</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding: 96px 48px; background: var(--color-accent); color: var(--color-bg)">
+      <div style="display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 64px; align-items: end">
+        <div>
+          <h2 style="font-size: clamp(40px, 6vw, 76px); line-height: 0.98; letter-spacing: -0.03em; margin: 0 0 24px; text-transform: uppercase; color: var(--color-bg)">Let's build<br>something that<br>ships.</h2>
+          <a href="{{ mailHref }}" style="font-size: 20px; font-weight: 600; color: var(--color-bg); text-decoration: underline; text-underline-offset: 6px">{{ email }}</a>
+        </div>
+        <div style="display: grid; gap: 10px; font-size: 14px; color: var(--color-bg)">
+          <div style="border-top: 2px solid var(--color-bg); padding-top: 12px">Amsterdam, Netherlands</div>
+          <div>+31 6 26 22 9536</div>
+          <a href="{{ githubHref }}" target="_blank" style="color: var(--color-bg); text-decoration: underline; text-underline-offset: 3px">github.com/amee342</a>
+        </div>
+      </div>
+    </section>
+  </div>
+  </sc-if>
+
+  <sc-if value="{{ isNail }}" hint-placeholder-val="{{ false }}">
+  <div>
+    <section style="padding: 56px 48px 64px; border-bottom: 2px solid var(--color-divider)">
+      <div onClick="{{ goHome }}" style="cursor: pointer; font-size: 13px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent); margin-bottom: 40px">← All work</div>
+      <div style="font-size: 12px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 20px">Case study 01 — NLP systems</div>
+      <h1 style="font-size: clamp(44px, 6.5vw, 84px); line-height: 0.96; letter-spacing: -0.03em; margin: 0 0 28px; text-transform: uppercase; max-width: 15ch">Nail Salon Booking Assistant</h1>
+      <p style="font-size: 21px; line-height: 1.45; max-width: 720px; margin: 0">A text-based booking agent that reads a sentence like "hi, can I get a mani tomorrow at 2?" and turns it into a validated, stored appointment — running a quantised Llama 3.1 entirely on the local machine, with a regex layer underneath that always succeeds.</p>
+    </section>
+
+    <section style="padding: 0 48px; border-bottom: 2px solid var(--color-divider)">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); border-left: 2px solid var(--color-divider)">
+        <div style="padding: 24px; border-right: 2px solid var(--color-divider); border-bottom: 2px solid var(--color-divider)">
+          <div style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 55%, transparent); margin-bottom: 8px">Role</div>
+          <div style="font-size: 16px; font-weight: 600">Sole author — NLP coursework MVP</div>
+        </div>
+        <div style="padding: 24px; border-right: 2px solid var(--color-divider); border-bottom: 2px solid var(--color-divider)">
+          <div style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 55%, transparent); margin-bottom: 8px">Stack</div>
+          <div style="font-size: 16px; font-weight: 600">llama-cpp · Pydantic · Streamlit · SQLite</div>
+        </div>
+        <div style="padding: 24px; border-right: 2px solid var(--color-divider); border-bottom: 2px solid var(--color-divider)">
+          <div style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 55%, transparent); margin-bottom: 8px">Model</div>
+          <div style="font-size: 16px; font-weight: 600">Meta-Llama-3.1-8B-Instruct, Q2_K GGUF</div>
+        </div>
+        <div style="padding: 24px; border-right: 2px solid var(--color-divider); border-bottom: 2px solid var(--color-divider)">
+          <div style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 55%, transparent); margin-bottom: 8px">Source</div>
+          <a href="https://github.com/amee342/nail-booking-assistant" target="_blank" style="font-size: 16px; font-weight: 600">nail-booking-assistant ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding: 56px 48px; border-bottom: 2px solid var(--color-divider)">
+      <figure>
+        <div class="grayscale" style="border: 2px solid var(--color-divider)">
+          <img src="image/example.png" alt="Streamlit chat interface of the booking assistant with the appointment sidebar" style="width: 100%; display: block">
+        </div>
+        <figcaption style="font-size: 12px; margin-top: 10px">The Streamlit interface — chat history on the left, confirmed appointments in the sidebar.</figcaption>
+      </figure>
+    </section>
+
+    <section style="padding: 72px 48px; border-bottom: 2px solid var(--color-divider)">
+      <div style="display: grid; grid-template-columns: clamp(130px, 16vw, 300px) minmax(0, 1fr); gap: clamp(32px, 4vw, 64px)">
+        <h2 style="font-size: 13px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; margin: 0">The problem</h2>
+        <div style="max-width: 720px">
+          <p style="font-size: 19px; line-height: 1.5; margin: 0 0 16px">Small salons lose bookings to the phone. Customers write in free text, out of order, and half the time they leave out the one field you need — so a form-shaped chatbot just interrogates them until they give up.</p>
+          <p style="font-size: 15px; line-height: 1.6; margin: 0; color: color-mix(in srgb, var(--color-text) 75%, transparent)">The interesting constraint was privacy and cost: no customer message should leave the machine, and no per-token bill. That ruled out hosted APIs and pushed the whole system onto local quantised inference — which in turn made robustness the real design problem, because a Q2_K model will sometimes hand you broken JSON.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding: 72px 48px; border-bottom: 2px solid var(--color-divider)">
+      <h2 style="font-size: 13px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; margin: 0 0 40px">How it works</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); border-top: 2px solid var(--color-divider); border-left: 2px solid var(--color-divider)">
+        <div style="padding: 24px; border-right: 2px solid var(--color-divider); border-bottom: 2px solid var(--color-divider)">
+          <div style="font-size: 13px; font-weight: 800; color: var(--color-accent); margin-bottom: 12px">01</div>
+          <div style="font-size: 17px; font-weight: 800; margin-bottom: 8px">Message in</div>
+          <p style="font-size: 14px; line-height: 1.6; margin: 0; color: color-mix(in srgb, var(--color-text) 75%, transparent)">Free-text chat turn arrives with the conversation state so far.</p>
+        </div>
+        <div style="padding: 24px; border-right: 2px solid var(--color-divider); border-bottom: 2px solid var(--color-divider)">
+          <div style="font-size: 13px; font-weight: 800; color: var(--color-accent); margin-bottom: 12px">02</div>
+          <div style="font-size: 17px; font-weight: 800; margin-bottom: 8px">Extract</div>
+          <p style="font-size: 14px; line-height: 1.6; margin: 0; color: color-mix(in srgb, var(--color-text) 75%, transparent)">Local Llama is prompted for strict JSON: service, date, time, name, contact — validated by Pydantic.</p>
+        </div>
+        <div style="padding: 24px; border-right: 2px solid var(--color-divider); border-bottom: 2px solid var(--color-divider)">
+          <div style="font-size: 13px; font-weight: 800; color: var(--color-accent); margin-bottom: 12px">03</div>
+          <div style="font-size: 17px; font-weight: 800; margin-bottom: 8px">Fall back</div>
+          <p style="font-size: 14px; line-height: 1.6; margin: 0; color: color-mix(in srgb, var(--color-text) 75%, transparent)">If the JSON is invalid, regex patterns take over — aliases ("mani" → manicure), dates, times, emails, phones. Always returns something.</p>
+        </div>
+        <div style="padding: 24px; border-right: 2px solid var(--color-divider); border-bottom: 2px solid var(--color-divider)">
+          <div style="font-size: 13px; font-weight: 800; color: var(--color-accent); margin-bottom: 12px">04</div>
+          <div style="font-size: 17px; font-weight: 800; margin-bottom: 8px">Validate</div>
+          <p style="font-size: 14px; line-height: 1.6; margin: 0; color: color-mix(in srgb, var(--color-text) 75%, transparent)">Service checked against the menu, slot checked against the calendar, missing fields turned into one polite follow-up question at a time.</p>
+        </div>
+        <div style="padding: 24px; border-right: 2px solid var(--color-divider); border-bottom: 2px solid var(--color-divider)">
+          <div style="font-size: 13px; font-weight: 800; color: var(--color-accent); margin-bottom: 12px">05</div>
+          <div style="font-size: 17px; font-weight: 800; margin-bottom: 8px">Book</div>
+          <p style="font-size: 14px; line-height: 1.6; margin: 0; color: color-mix(in srgb, var(--color-text) 75%, transparent)">Appointment written to SQLite, confirmation rendered, state reset for the next customer.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding: 72px 48px; border-bottom: 2px solid var(--color-divider)">
+      <div style="display: grid; grid-template-columns: clamp(130px, 16vw, 300px) minmax(0, 1fr); gap: clamp(32px, 4vw, 64px)">
+        <h2 style="font-size: 13px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; margin: 0">Decisions I'd defend</h2>
+        <div style="max-width: 760px; display: grid; gap: 0; border-top: 2px solid var(--color-divider)">
+          <div style="padding: 20px 0; border-bottom: 1px solid var(--color-divider)">
+            <div style="font-size: 18px; font-weight: 800; margin-bottom: 6px">Two-stage extraction beats one clever prompt</div>
+            <p style="font-size: 15px; line-height: 1.6; margin: 0; color: color-mix(in srgb, var(--color-text) 75%, transparent)">The model is allowed to fail. Every extraction records its source (<code>llm</code> or <code>rule</code>) and a confidence score, so failures are visible in the logs instead of silently degrading the conversation.</p>
+          </div>
+          <div style="padding: 20px 0; border-bottom: 1px solid var(--color-divider)">
+            <div style="font-size: 18px; font-weight: 800; margin-bottom: 6px">State lives outside the model</div>
+            <p style="font-size: 15px; line-height: 1.6; margin: 0; color: color-mix(in srgb, var(--color-text) 75%, transparent)">New fields are merged into a plain dict, so a half-finished booking survives a bad turn and the assistant only ever asks for what's genuinely missing.</p>
+          </div>
+          <div style="padding: 20px 0; border-bottom: 1px solid var(--color-divider)">
+            <div style="font-size: 18px; font-weight: 800; margin-bottom: 6px">Unavailable is an answer, not an error</div>
+            <p style="font-size: 15px; line-height: 1.6; margin: 0; color: color-mix(in srgb, var(--color-text) 75%, transparent)">A taken slot returns the remaining times for that date; a full day asks for another. The booking flow never dead-ends.</p>
+          </div>
+          <div style="padding: 20px 0; border-bottom: 1px solid var(--color-divider)">
+            <div style="font-size: 18px; font-weight: 800; margin-bottom: 6px">Measured, not vibed</div>
+            <p style="font-size: 15px; line-height: 1.6; margin: 0; color: color-mix(in srgb, var(--color-text) 75%, transparent)">A 39-case harness scores intent and service accuracy per run and writes a results CSV, so a prompt change can be judged instead of argued about.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding: 72px 48px; border-bottom: 2px solid var(--color-divider)">
+      <div style="display: grid; grid-template-columns: clamp(130px, 16vw, 300px) minmax(0, 1fr); gap: clamp(32px, 4vw, 64px)">
+        <h2 style="font-size: 13px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; margin: 0">Limits &amp; next</h2>
+        <div style="max-width: 720px">
+          <p style="font-size: 15px; line-height: 1.6; margin: 0 0 16px; color: color-mix(in srgb, var(--color-text) 75%, transparent)">It's an MVP and says so: no Twilio, no calendar sync, no accounts or payments, single language. The Q2_K quantisation trades quality for speed and still trips on ambiguous phrasing.</p>
+          <p style="font-size: 15px; line-height: 1.6; margin: 0; color: color-mix(in srgb, var(--color-text) 75%, transparent)">The path to production I'd take next: few-shot examples and a higher-quality quantisation for extraction, Google Calendar for real availability, then Twilio for inbound calls and SMS confirmations.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding: 56px 48px; display: flex; justify-content: space-between; gap: 24px; align-items: center">
+      <div onClick="{{ goHome }}" style="cursor: pointer; font-size: 13px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent)">← All work</div>
+      <div onClick="{{ goCook }}" style="cursor: pointer; font-size: 13px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent)">Next: Cooking Assistant Agent →</div>
+    </section>
+  </div>
+  </sc-if>
+
+  <sc-if value="{{ isCook }}" hint-placeholder-val="{{ false }}">
+  <div>
+    <section style="padding: 56px 48px 64px; border-bottom: 2px solid var(--color-divider)">
+      <div onClick="{{ goHome }}" style="cursor: pointer; font-size: 13px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent); margin-bottom: 40px">← All work</div>
+      <div style="font-size: 12px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 20px">Case study 02 — Conversational AI</div>
+      <h1 style="font-size: clamp(44px, 6.5vw, 84px); line-height: 0.96; letter-spacing: -0.03em; margin: 0 0 28px; text-transform: uppercase; max-width: 15ch">Cooking Assistant Agent</h1>
+      <p style="font-size: 21px; line-height: 1.45; max-width: 720px; margin: 0">A recipe assistant you can talk to. Dialogflow CX handles intent and dialogue; a Prolog knowledge base answers the questions that need to be right — what can I substitute, what's still missing, does this fit what's in my kitchen.</p>
+    </section>
+
+    <section style="padding: 0 48px; border-bottom: 2px solid var(--color-divider)">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); border-left: 2px solid var(--color-divider)">
+        <div style="padding: 24px; border-right: 2px solid var(--color-divider); border-bottom: 2px solid var(--color-divider)">
+          <div style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 55%, transparent); margin-bottom: 8px">Role</div>
+          <div style="font-size: 16px; font-weight: 600">Design &amp; build — university project</div>
+        </div>
+        <div style="padding: 24px; border-right: 2px solid var(--color-divider); border-bottom: 2px solid var(--color-divider)">
+          <div style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 55%, transparent); margin-bottom: 8px">Stack</div>
+          <div style="font-size: 16px; font-weight: 600">Dialogflow CX · Prolog · Speech-to-text API</div>
+        </div>
+        <div style="padding: 24px; border-right: 2px solid var(--color-divider); border-bottom: 2px solid var(--color-divider)">
+          <div style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 55%, transparent); margin-bottom: 8px">Shape</div>
+          <div style="font-size: 16px; font-weight: 600">Neuro-symbolic: NLU in, rules out</div>
+        </div>
+        <div style="padding: 24px; border-right: 2px solid var(--color-divider); border-bottom: 2px solid var(--color-divider)">
+          <div style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 55%, transparent); margin-bottom: 8px">Input</div>
+          <div style="font-size: 16px; font-weight: 600">Voice or text</div>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding: 72px 48px; border-bottom: 2px solid var(--color-divider)">
+      <div style="display: grid; grid-template-columns: clamp(130px, 16vw, 300px) minmax(0, 1fr); gap: clamp(32px, 4vw, 64px)">
+        <h2 style="font-size: 13px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; margin: 0">The problem</h2>
+        <div style="max-width: 720px">
+          <p style="font-size: 19px; line-height: 1.5; margin: 0 0 16px">Cooking is the worst possible time to use a screen. Your hands are busy, the question is specific, and a wrong answer ruins dinner.</p>
+          <p style="font-size: 15px; line-height: 1.6; margin: 0; color: color-mix(in srgb, var(--color-text) 75%, transparent)">A pure language model is fluent about recipes and unreliable about facts. So the language layer only decides <em>what was asked</em> — the answer itself comes from rules that can be inspected and corrected.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding: 72px 48px; border-bottom: 2px solid var(--color-divider)">
+      <h2 style="font-size: 13px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; margin: 0 0 40px">How it works</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 0; border-top: 2px solid var(--color-divider); border-left: 2px solid var(--color-divider)">
+        <div style="padding: 24px; border-right: 2px solid var(--color-divider); border-bottom: 2px solid var(--color-divider)">
+          <div style="font-size: 13px; font-weight: 800; color: var(--color-accent); margin-bottom: 12px">01</div>
+          <div style="font-size: 17px; font-weight: 800; margin-bottom: 8px">Speech to text</div>
+          <p style="font-size: 14px; line-height: 1.6; margin: 0; color: color-mix(in srgb, var(--color-text) 75%, transparent)">Voice input is transcribed so the user never has to touch the phone mid-recipe.</p>
+        </div>
+        <div style="padding: 24px; border-right: 2px solid var(--color-divider); border-bottom: 2px solid var(--color-divider)">
+          <div style="font-size: 13px; font-weight: 800; color: var(--color-accent); margin-bottom: 12px">02</div>
+          <div style="font-size: 17px; font-weight: 800; margin-bottom: 8px">Intent &amp; entities</div>
+          <p style="font-size: 14px; line-height: 1.6; margin: 0; color: color-mix(in srgb, var(--color-text) 75%, transparent)">Dialogflow CX classifies the request and pulls out dishes, ingredients and constraints, keeping context across turns.</p>
+        </div>
+        <div style="padding: 24px; border-right: 2px solid var(--color-divider); border-bottom: 2px solid var(--color-divider)">
+          <div style="font-size: 13px; font-weight: 800; color: var(--color-accent); margin-bottom: 12px">03</div>
+          <div style="font-size: 17px; font-weight: 800; margin-bottom: 8px">Prolog reasoning</div>
+          <p style="font-size: 14px; line-height: 1.6; margin: 0; color: color-mix(in srgb, var(--color-text) 75%, transparent)">Recipe rules match ingredients on hand, find substitutions and rank what's actually cookable tonight.</p>
+        </div>
+        <div style="padding: 24px; border-right: 2px solid var(--color-divider); border-bottom: 2px solid var(--color-divider)">
+          <div style="font-size: 13px; font-weight: 800; color: var(--color-accent); margin-bottom: 12px">04</div>
+          <div style="font-size: 17px; font-weight: 800; margin-bottom: 8px">Spoken answer</div>
+          <p style="font-size: 14px; line-height: 1.6; margin: 0; color: color-mix(in srgb, var(--color-text) 75%, transparent)">The rule result is filled into the dialogue response — grounded, short, and traceable back to a fact.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding: 72px 48px; border-bottom: 2px solid var(--color-divider)">
+      <div style="display: grid; grid-template-columns: clamp(130px, 16vw, 300px) minmax(0, 1fr); gap: clamp(32px, 4vw, 64px)">
+        <h2 style="font-size: 13px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; margin: 0">What I took from it</h2>
+        <div style="max-width: 760px; display: grid; gap: 0; border-top: 2px solid var(--color-divider)">
+          <div style="padding: 20px 0; border-bottom: 1px solid var(--color-divider)">
+            <div style="font-size: 18px; font-weight: 800; margin-bottom: 6px">Draw the line between fluent and correct</div>
+            <p style="font-size: 15px; line-height: 1.6; margin: 0; color: color-mix(in srgb, var(--color-text) 75%, transparent)">Language models are good at understanding, symbolic layers are good at being right. Most useful assistants need both, with a clean interface between them.</p>
+          </div>
+          <div style="padding: 20px 0; border-bottom: 1px solid var(--color-divider)">
+            <div style="font-size: 18px; font-weight: 800; margin-bottom: 6px">Voice changes the copy</div>
+            <p style="font-size: 15px; line-height: 1.6; margin: 0; color: color-mix(in srgb, var(--color-text) 75%, transparent)">Anything longer than two sentences is unlistenable. Designing for speech forced answers to be short and unambiguous — which made the text version better too.</p>
+          </div>
+          <div style="padding: 20px 0; border-bottom: 1px solid var(--color-divider)">
+            <div style="font-size: 18px; font-weight: 800; margin-bottom: 6px">Rules are documentation</div>
+            <p style="font-size: 15px; line-height: 1.6; margin: 0; color: color-mix(in srgb, var(--color-text) 75%, transparent)">When behaviour is wrong, you can point at the clause. That debuggability is why I reach for hybrid designs on anything domain-specific.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding: 56px 48px; display: flex; justify-content: space-between; gap: 24px; align-items: center">
+      <div onClick="{{ goNail }}" style="cursor: pointer; font-size: 13px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent)">← Nail Booking Assistant</div>
+      <div onClick="{{ goSenti }}" style="cursor: pointer; font-size: 13px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent)">Next: Customer Voice Pipeline →</div>
+    </section>
+  </div>
+  </sc-if>
+
+  <sc-if value="{{ isSenti }}" hint-placeholder-val="{{ false }}">
+  <div>
+    <section style="padding: 56px 48px 64px; border-bottom: 2px solid var(--color-divider)">
+      <div onClick="{{ goHome }}" style="cursor: pointer; font-size: 13px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent); margin-bottom: 40px">← All work</div>
+      <div style="font-size: 12px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 20px">Case study 03 — Applied data science</div>
+      <h1 style="font-size: clamp(44px, 6.5vw, 84px); line-height: 0.96; letter-spacing: -0.03em; margin: 0 0 28px; text-transform: uppercase; max-width: 15ch">Customer Voice Pipeline</h1>
+      <p style="font-size: 21px; line-height: 1.45; max-width: 720px; margin: 0">Six months at 2Contact turning an open question from the sales department — "what are customers actually unhappy about?" — into an automated weekly report nobody had to assemble by hand.</p>
+    </section>
+
+    <section style="padding: 0 48px; border-bottom: 2px solid var(--color-divider)">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); border-left: 2px solid var(--color-divider)">
+        <div style="padding: 24px; border-right: 2px solid var(--color-divider); border-bottom: 2px solid var(--color-divider)">
+          <div style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 55%, transparent); margin-bottom: 8px">Role</div>
+          <div style="font-size: 16px; font-weight: 600">Data Science Intern, 2Contact</div>
+        </div>
+        <div style="padding: 24px; border-right: 2px solid var(--color-divider); border-bottom: 2px solid var(--color-divider)">
+          <div style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 55%, transparent); margin-bottom: 8px">Period</div>
+          <div style="font-size: 16px; font-weight: 600">June — December 2024</div>
+        </div>
+        <div style="padding: 24px; border-right: 2px solid var(--color-divider); border-bottom: 2px solid var(--color-divider)">
+          <div style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 55%, transparent); margin-bottom: 8px">Stack</div>
+          <div style="font-size: 16px; font-weight: 600">Python · OpenAI API · GitHub Actions</div>
+        </div>
+        <div style="padding: 24px; border-right: 2px solid var(--color-divider); border-bottom: 2px solid var(--color-divider)">
+          <div style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 55%, transparent); margin-bottom: 8px">Outcome</div>
+          <div style="font-size: 16px; font-weight: 600">Manual reporting effort removed</div>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding: 72px 48px; border-bottom: 2px solid var(--color-divider)">
+      <div style="display: grid; grid-template-columns: clamp(130px, 16vw, 300px) minmax(0, 1fr); gap: clamp(32px, 4vw, 64px)">
+        <h2 style="font-size: 13px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; margin: 0">The problem</h2>
+        <div style="max-width: 720px">
+          <p style="font-size: 19px; line-height: 1.5; margin: 0 0 16px">The business had thousands of public forum posts about its service and no way to read them. The question arrived unscoped, so the first job was turning it into something measurable.</p>
+          <p style="font-size: 15px; line-height: 1.6; margin: 0; color: color-mix(in srgb, var(--color-text) 75%, transparent)">I worked with my supervisor to agree what "satisfaction" would mean in numbers and which problem categories mattered to the sales team, before writing a line of pipeline code.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding: 72px 48px; border-bottom: 2px solid var(--color-divider)">
+      <h2 style="font-size: 13px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; margin: 0 0 40px">The pipeline</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 0; border-top: 2px solid var(--color-divider); border-left: 2px solid var(--color-divider)">
+        <div style="padding: 24px; border-right: 2px solid var(--color-divider); border-bottom: 2px solid var(--color-divider)">
+          <div style="font-size: 13px; font-weight: 800; color: var(--color-accent); margin-bottom: 12px">01</div>
+          <div style="font-size: 17px; font-weight: 800; margin-bottom: 8px">Scrape</div>
+          <p style="font-size: 14px; line-height: 1.6; margin: 0; color: color-mix(in srgb, var(--color-text) 75%, transparent)">Python scripts collect customer feedback threads from the KPN community forum.</p>
+        </div>
+        <div style="padding: 24px; border-right: 2px solid var(--color-divider); border-bottom: 2px solid var(--color-divider)">
+          <div style="font-size: 13px; font-weight: 800; color: var(--color-accent); margin-bottom: 12px">02</div>
+          <div style="font-size: 17px; font-weight: 800; margin-bottom: 8px">Classify</div>
+          <p style="font-size: 14px; line-height: 1.6; margin: 0; color: color-mix(in srgb, var(--color-text) 75%, transparent)">OpenAI models infer satisfaction and tag recurring customer-service problems against the agreed categories.</p>
+        </div>
+        <div style="padding: 24px; border-right: 2px solid var(--color-divider); border-bottom: 2px solid var(--color-divider)">
+          <div style="font-size: 13px; font-weight: 800; color: var(--color-accent); margin-bottom: 12px">03</div>
+          <div style="font-size: 17px; font-weight: 800; margin-bottom: 8px">Automate</div>
+          <p style="font-size: 14px; line-height: 1.6; margin: 0; color: color-mix(in srgb, var(--color-text) 75%, transparent)">GitHub Actions runs the ETL on a schedule — the manual data-processing step disappeared.</p>
+        </div>
+        <div style="padding: 24px; border-right: 2px solid var(--color-divider); border-bottom: 2px solid var(--color-divider)">
+          <div style="font-size: 13px; font-weight: 800; color: var(--color-accent); margin-bottom: 12px">04</div>
+          <div style="font-size: 17px; font-weight: 800; margin-bottom: 8px">Report</div>
+          <p style="font-size: 14px; line-height: 1.6; margin: 0; color: color-mix(in srgb, var(--color-text) 75%, transparent)">A weekly dashboard and satisfaction report land with concrete suggestions for the next period.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding: 72px 48px; border-bottom: 2px solid var(--color-divider)">
+      <div style="display: grid; grid-template-columns: clamp(130px, 16vw, 300px) minmax(0, 1fr); gap: clamp(32px, 4vw, 64px)">
+        <h2 style="font-size: 13px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; margin: 0">What I took from it</h2>
+        <div style="max-width: 760px; display: grid; gap: 0; border-top: 2px solid var(--color-divider)">
+          <div style="padding: 20px 0; border-bottom: 1px solid var(--color-divider)">
+            <div style="font-size: 18px; font-weight: 800; margin-bottom: 6px">Define the metric before the model</div>
+            <p style="font-size: 15px; line-height: 1.6; margin: 0; color: color-mix(in srgb, var(--color-text) 75%, transparent)">The hardest part wasn't classification — it was agreeing with stakeholders on what counted as a satisfied customer.</p>
+          </div>
+          <div style="padding: 20px 0; border-bottom: 1px solid var(--color-divider)">
+            <div style="font-size: 18px; font-weight: 800; margin-bottom: 6px">An analysis nobody reruns is a one-off</div>
+            <p style="font-size: 15px; line-height: 1.6; margin: 0; color: color-mix(in srgb, var(--color-text) 75%, transparent)">Putting the ETL in CI is what turned a slide deck into a standing part of how the team reviews its week.</p>
+          </div>
+          <div style="padding: 20px 0; border-bottom: 1px solid var(--color-divider)">
+            <div style="font-size: 18px; font-weight: 800; margin-bottom: 6px">Write for the reader, not the notebook</div>
+            <p style="font-size: 15px; line-height: 1.6; margin: 0; color: color-mix(in srgb, var(--color-text) 75%, transparent)">Sales didn't want distributions; they wanted two things to fix. Every report ended with recommendations, not charts.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding: 56px 48px; display: flex; justify-content: space-between; gap: 24px; align-items: center">
+      <div onClick="{{ goCook }}" style="cursor: pointer; font-size: 13px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent)">← Cooking Assistant Agent</div>
+      <div onClick="{{ goHome }}" style="cursor: pointer; font-size: 13px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent)">All work →</div>
+    </section>
+  </div>
+  </sc-if>
+
+  <footer style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 16px; padding: 28px 48px; border-top: 2px solid var(--color-divider); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 55%, transparent)">
+    <span>Amee Tran — AI Engineer</span>
+    <span style="position: relative">AMSTERDAM, NL</span>
+    <a href="{{ mailHref }}">{{ email }}</a>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;email&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;ameetran.businesscontact@gmail.com&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Contact&quot;},&quot;githubUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;https://github.com/amee342&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Contact&quot;},&quot;openToWork&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Content&quot;}}">
+class Component extends DCLogic {
+  state = { route: 'home' };
+
+  go(route) {
+    this.setState({ route }, () => window.scrollTo(0, 0));
+  }
+
+  scrollTo(id) {
+    const el = document.getElementById(id);
+    if (this.state.route !== 'home') {
+      this.setState({ route: 'home' }, () => {
+        const t = document.getElementById(id);
+        if (t) window.scrollTo(0, t.offsetTop - 70);
+      });
+    } else if (el) {
+      window.scrollTo({ top: el.offsetTop - 70, behavior: 'smooth' });
+    }
+  }
+
+  renderVals() {
+    const email = this.props.email ?? 'ameetran.businesscontact@gmail.com';
+    const github = this.props.githubUrl ?? 'https://github.com/amee342';
+    const r = this.state.route;
+    return {
+      email,
+      mailHref: 'mailto:' + email,
+      githubHref: github,
+      openToWork: this.props.openToWork ?? true,
+      isHome: r === 'home',
+      isNail: r === 'nail',
+      isCook: r === 'cook',
+      isSenti: r === 'senti',
+      goHome: () => this.go('home'),
+      goNail: () => this.go('nail'),
+      goCook: () => this.go('cook'),
+      goSenti: () => this.go('senti'),
+      goWork: () => this.scrollTo('work'),
+      goAbout: () => this.scrollTo('about'),
+      goStack: () => this.scrollTo('stack')
+    };
+  }
+}
+</script>
+</body>
+</html>
